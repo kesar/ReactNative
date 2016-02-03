@@ -12,8 +12,6 @@ var Cell = require('Cell');
 var {
 	StyleSheet,
 	View,
-	TouchableHighlight,
-	TouchableNativeFeedback,
 	} = React;
 
 var Board = React.createClass({
