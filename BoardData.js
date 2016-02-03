@@ -4,24 +4,27 @@
  */
 'use strict';
 
-var Board = function () {
+var BoardRows = 4;
+var BoardColumns = 5;
+
+var BoardData = function () {
 	this.cells = [];
 	this.won = false;
-	// add values into cells
+	for(var i=0; i< BoardColumns; i++) {
+		this.cells[i] = [0,0,0,0]; // TODO: improve
+	}
 };
 
-Board.prototype.addCell = function () {
-	// add cell content
-	this.cells.push(res);
-	return res;
+BoardData.prototype.cells = function () {
+	return this.cells;
 };
 
-Board.prototype.hasWon = function () {
+BoardData.prototype.hasWon = function () {
 	return this.won;
 };
 
-Board.prototype.hasLost = function () {
+BoardData.prototype.hasLost = function () {
 	return false;
 };
 
-module.exports = Board;
+module.exports = BoardData;
