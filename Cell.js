@@ -19,10 +19,14 @@ var {
 	TouchableHighlight,
 	TouchableNativeFeedback,
 	View,
-	Image
 	} = React;
 
 var Cell = React.createClass({
+
+	getInitialState() {
+		return { open: false }
+	},
+
 	render: function() {
 		var TouchableElement = TouchableHighlight;
 		if (Platform.OS === 'android') {
@@ -30,7 +34,7 @@ var Cell = React.createClass({
 		}
 		return (
 			<TouchableElement  onPress={() => this.checkCell(this.props.x, this.props.y)}>
-				<View style={[styles.cell]}>
+				<View style={[styles.cell, this.state.open && styles.openedCell]}>
 					<Image source={require('./images/bang.png')} style={styles.mineCell} />
 					<Image source={require('./images/prize.png')} style={styles.prizeCell} />
 				</View>
@@ -40,12 +44,22 @@ var Cell = React.createClass({
 
 	checkCell: function(x, y) {
 		var data = this.props.data;
-		var currentCellValue = data.cells[x][y];
-		if (currentCellValue > 0) {
+		if (data.isCellVisited(x, y) || (data.hasWon() || data.hasLost())) {
 			return;
 		}
-		data.changeCell(x,y,1);
-		alert('value changed');
+		this.setState({open: true});
+
+		data.visitCell(x, y);
+		var result = data.getCell(x,y );
+		if (result == 2) {
+			data.changeResult(false, true);
+			alert('died');
+		} else if(result == 3) {
+			data.changeResult(true, false);
+			alert('you win a Dekdo!');
+		} else {
+			alert('empty!');
+		}
 	}
 });
 
@@ -58,7 +72,7 @@ var styles = StyleSheet.create({
 		backgroundColor: '#ddccbb',
 	},
 	openedCell: {
-		backgroundColor: '#fafafa',
+		backgroundColor: '#000000',
 	},
 	mineCell: {
 		justifyContent: 'center',

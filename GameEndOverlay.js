@@ -7,6 +7,7 @@
 'use strict';
 
 var React = require('react-native');
+var TouchableBounce = require('TouchableBounce');
 
 var {
 	StyleSheet,
@@ -18,7 +19,6 @@ var {
 
 var GameEndOverlay = React.createClass({
 	render: function() {
-
 		var data = this.props.data;
 
 		if (!data.hasWon() && !data.hasLost()) {

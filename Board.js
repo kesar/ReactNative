@@ -11,7 +11,9 @@ var Cell = require('Cell');
 
 var {
 	StyleSheet,
-	View
+	View,
+	TouchableHighlight,
+	TouchableNativeFeedback,
 	} = React;
 
 var Board = React.createClass({
@@ -53,6 +55,8 @@ var Board = React.createClass({
 					<Cell data={this.props.data} x="4" y="2" />
 					<Cell data={this.props.data} x="4" y="3" />
 				</View>
+
+				{this.props.children}
 			</View>
 		);
 	}
