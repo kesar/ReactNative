@@ -24,7 +24,10 @@ var {
 var Cell = React.createClass({
 
 	getInitialState() {
-		return { open: false }
+		return {
+			open: false,
+			type: 0
+		}
 	},
 
 	render: function() {
@@ -35,8 +38,7 @@ var Cell = React.createClass({
 		return (
 			<TouchableElement  onPress={() => this.checkCell(this.props.x, this.props.y)}>
 				<View style={[styles.cell, this.state.open && styles.openedCell]}>
-					<Image source={require('./images/bang.png')} style={[styles.mineCell, this.state.open && styles.show]} />
-					<Image source={require('./images/prize.png')} style={styles.prizeCell} />
+					<Image source={this.checkType()} style={styles.imageCell} />
 				</View>
 			</TouchableElement>
 		);
@@ -47,19 +49,34 @@ var Cell = React.createClass({
 		if (data.isCellVisited(x, y) || (data.hasWon() || data.hasLost())) {
 			return;
 		}
-		this.setState({open: true});
-
 		data.visitCell(x, y);
 		var result = data.getCell(x,y );
+
+		this.setState({
+			open: true,
+			type: result
+		});
+
 		if (result == 2) {
 			data.changeResult(false, true);
-			alert('died');
+			//alert('died');
 		} else if(result == 3) {
 			data.changeResult(true, false);
-			alert('you win a Dekdo!');
+			//alert('you win a Dekdo!');
 		} else {
-			alert('empty!');
+			//alert('empty!');
 		}
+	},
+	checkType: function() {
+		if (this.state.open) {
+			switch(this.state.type) {
+				case 3:
+					return require('./images/prize.png');
+				case 2:
+					return require('./images/bang.png');
+			}
+		}
+		return null;
 	}
 });
 
@@ -72,28 +89,15 @@ var styles = StyleSheet.create({
 		backgroundColor: '#ddccbb',
 	},
 	openedCell: {
-		backgroundColor: '#000000',
+		backgroundColor: '#eee',
 	},
-	mineCell: {
+	imageCell: {
 		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1,
 		position: 'absolute',
 		left: 16,
 		top: 16,
-		opacity: 0,
-	},
-	show: {
-		opacity: 1
-	},
-	prizeCell: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		flex: 1,
-		position: 'absolute',
-		left: 16,
-		top: 16,
-		opacity: 0,
 	},
 });
 
