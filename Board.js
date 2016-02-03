@@ -10,11 +10,7 @@ var React = require('react-native');
 var Cell = require('Cell');
 
 var {
-	Image,
 	StyleSheet,
-	Text,
-	TouchableHighlight,
-	TouchableNativeFeedback,
 	View
 	} = React;
 
@@ -23,38 +19,38 @@ var Board = React.createClass({
 		return (
 			<View style={styles.board}>
 				<View style={styles.row}>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
-					<Cell onPress={() => this.alert()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
+					<Cell onPress={() => this.checkCell()}/>
 				</View>
 
             {this.props.children}
@@ -62,8 +58,8 @@ var Board = React.createClass({
 		);
 	},
 
-	alert: function() {
-		alert('clicked in cell');
+	checkCell: function() {
+		alert('checking cell...');
 	}
 });
 
