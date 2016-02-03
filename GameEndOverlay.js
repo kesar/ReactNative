@@ -9,7 +9,6 @@
 var React = require('react-native');
 
 var {
-	Image,
 	StyleSheet,
 	Text,
 	TouchableHighlight,

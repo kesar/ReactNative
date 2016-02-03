@@ -9,8 +9,6 @@
 var React = require('react-native');
 var Cell = require('Cell');
 
-var BOARD_PADDING = 3;
-
 var {
 	Image,
 	StyleSheet,
@@ -74,7 +72,7 @@ var styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	board: {
-		padding: BOARD_PADDING,
+		padding: 3,
 		backgroundColor: '#bbaaaa',
 		borderRadius: 5,
 	},
