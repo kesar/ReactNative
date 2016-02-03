@@ -35,7 +35,7 @@ var Cell = React.createClass({
 		return (
 			<TouchableElement  onPress={() => this.checkCell(this.props.x, this.props.y)}>
 				<View style={[styles.cell, this.state.open && styles.openedCell]}>
-					<Image source={require('./images/bang.png')} style={styles.mineCell} />
+					<Image source={require('./images/bang.png')} style={[styles.mineCell, this.state.open && styles.show]} />
 					<Image source={require('./images/prize.png')} style={styles.prizeCell} />
 				</View>
 			</TouchableElement>
@@ -82,6 +82,9 @@ var styles = StyleSheet.create({
 		left: 16,
 		top: 16,
 		opacity: 0,
+	},
+	show: {
+		opacity: 1
 	},
 	prizeCell: {
 		justifyContent: 'center',
