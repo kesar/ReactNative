@@ -12,6 +12,7 @@ var {
 	AppRegistry,
 	StyleSheet,
 	View,
+	Image,
 	} = React;
 
 var Board = require('Board');
@@ -33,6 +34,7 @@ var DealExplorer = React.createClass({
 		return (
 			<View
 				style={styles.container}>
+				<Image source={require('./images/logo.png')} style={styles.logo} />
 				<Board data={this.state.board}></Board>
 				<GameEndOverlay data={this.state.board} onRestart={() => this.restartGame()} />
 			</View>
@@ -45,6 +47,9 @@ var styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	logo: {
+		bottom: 30,
 	}
 });
 
