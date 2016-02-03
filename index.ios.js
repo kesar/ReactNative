@@ -21,9 +21,7 @@ class DealExplorer extends React.Component {
 
 	constructor(props: {}) {
 		super(props);
-		this.state = {
-			board: new BoardData(),
-		};
+		this.state = { board: new BoardData() };
 	}
 
 	restartGame() {
@@ -35,8 +33,8 @@ class DealExplorer extends React.Component {
 		return (
 			<View
 				style={styles.container}>
-				<Board></Board>
-				<GameEndOverlay board={this.state.board} onRestart={() => this.restartGame()} />
+				<Board data={this.state.board}></Board>
+				<GameEndOverlay data={this.state.board} onRestart={() => this.restartGame()} />
 			</View>
 		);
 	}
@@ -51,5 +49,4 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('DealExplorer', () => DealExplorer);
-
 module.exports = DealExplorer;

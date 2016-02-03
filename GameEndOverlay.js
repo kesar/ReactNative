@@ -19,13 +19,13 @@ var {
 var GameEndOverlay = React.createClass({
 	render: function() {
 
-		var board = this.props.board;
+		var data = this.props.data;
 
-		if (!board.hasWon() && !board.hasLost()) {
+		if (!data.hasWon() && !data.hasLost()) {
 			return <View/>;
 		}
 
-		var message = board.hasWon() ?
+		var message = data.hasWon() ?
 			'Good Job!' : 'Game Over';
 
 		return (

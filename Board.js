@@ -16,6 +16,9 @@ var {
 
 var Board = React.createClass({
 	render: function() {
+
+		var data = this.props.data;
+
 		return (
 			<View style={styles.board}>
 				<View style={styles.row}>
