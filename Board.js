@@ -20,46 +20,41 @@ var Board = React.createClass({
 		return (
 			<View style={styles.board}>
 				<View style={styles.row}>
-					<Cell onPress={() => this.checkCell(0, 0)}/>
-					<Cell onPress={() => this.checkCell(0, 1)}/>
-					<Cell onPress={() => this.checkCell(0, 2)}/>
-					<Cell onPress={() => this.checkCell(0, 3)}/>
+					<Cell data={this.props.data} x="0" y="0" />
+					<Cell data={this.props.data} x="0" y="1" />
+					<Cell data={this.props.data} x="0" y="2" />
+					<Cell data={this.props.data} x="0" y="3" />
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.checkCell(1, 0)}/>
-					<Cell onPress={() => this.checkCell(1, 1)}/>
-					<Cell onPress={() => this.checkCell(1, 2)}/>
-					<Cell onPress={() => this.checkCell(1, 3)}/>
+					<Cell data={this.props.data} x="1" y="0" />
+					<Cell data={this.props.data} x="1" y="1" />
+					<Cell data={this.props.data} x="1" y="2" />
+					<Cell data={this.props.data} x="1" y="3" />
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.checkCell(2, 0)}/>
-					<Cell onPress={() => this.checkCell(2, 1)}/>
-					<Cell onPress={() => this.checkCell(2, 2)}/>
-					<Cell onPress={() => this.checkCell(2, 3)}/>
+					<Cell data={this.props.data} x="2" y="0" />
+					<Cell data={this.props.data} x="2" y="1" />
+					<Cell data={this.props.data} x="2" y="2" />
+					<Cell data={this.props.data} x="2" y="3" />
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.checkCell(3, 0)}/>
-					<Cell onPress={() => this.checkCell(3, 1)}/>
-					<Cell onPress={() => this.checkCell(3, 2)}/>
-					<Cell onPress={() => this.checkCell(3, 3)}/>
+					<Cell data={this.props.data} x="3" y="0" />
+					<Cell data={this.props.data} x="3" y="1" />
+					<Cell data={this.props.data} x="3" y="2" />
+					<Cell data={this.props.data} x="3" y="3" />
 				</View>
 
 				<View style={styles.row}>
-					<Cell onPress={() => this.checkCell(4, 0)}/>
-					<Cell onPress={() => this.checkCell(4, 1)}/>
-					<Cell onPress={() => this.checkCell(4, 2)}/>
-					<Cell onPress={() => this.checkCell(4 ,3)}/>
+					<Cell data={this.props.data} x="4" y="0" />
+					<Cell data={this.props.data} x="4" y="1" />
+					<Cell data={this.props.data} x="4" y="2" />
+					<Cell data={this.props.data} x="4" y="3" />
 				</View>
 			</View>
 		);
-	},
-
-	checkCell: function(x, y) {
-		var data = this.props.data;
-		alert('checking cell...' + x + ', ' + y + 'and result is: ' + data.cells[x][y]);
 	}
 });
 

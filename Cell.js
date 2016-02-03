@@ -29,13 +29,23 @@ var Cell = React.createClass({
 			TouchableElement = TouchableNativeFeedback;
 		}
 		return (
-			<TouchableElement onPress={this.props.onPress}>
+			<TouchableElement  onPress={() => this.checkCell(this.props.x, this.props.y)}>
 				<View style={[styles.cell]}>
 					<Image source={require('./images/bang.png')} style={styles.mineCell} />
 					<Image source={require('./images/prize.png')} style={styles.prizeCell} />
 				</View>
 			</TouchableElement>
 		);
+	},
+
+	checkCell: function(x, y) {
+		var data = this.props.data;
+		var currentCellValue = data.cells[x][y];
+		if (currentCellValue > 0) {
+			return;
+		}
+		data.changeCell(x,y,1);
+		alert('value changed');
 	}
 });
 

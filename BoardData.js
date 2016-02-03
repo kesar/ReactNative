@@ -19,6 +19,10 @@ BoardData.prototype.cells = function () {
 	return this.cells;
 };
 
+BoardData.prototype.changeCell = function (x, y, value) {
+	return this.cells[x][y] = value;
+};
+
 BoardData.prototype.hasWon = function () {
 	return this.won;
 };
