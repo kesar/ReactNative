@@ -30,7 +30,7 @@ var Cell = React.createClass({
 		}
 		return (
 			<TouchableElement onPress={this.props.onPress}>
-				<View style={styles.cell}>
+				<View style={[styles.cell]}>
 					<Image source={require('./images/bang.png')} style={styles.mineCell} />
 					<Image source={require('./images/prize.png')} style={styles.prizeCell} />
 				</View>
@@ -48,10 +48,6 @@ var styles = StyleSheet.create({
 		backgroundColor: '#ddccbb',
 	},
 	openedCell: {
-		width: CELL_SIZE,
-		height: CELL_SIZE,
-		margin: CELL_MARGIN,
-		borderRadius: 5,
 		backgroundColor: '#fafafa',
 	},
 	mineCell: {
